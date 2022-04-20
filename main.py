@@ -30,7 +30,7 @@ import random
 
 rps_game = [rock, paper, scissors]
 
-player_selection = int(input("What do you choose? Type 0 for Rock, 1 for Paper, or 2 for Scissors \n"))
+player_selection = int(input("What do you choose? Type 0 for Rock, 1 for Paper, or 2 for Scissors. \n"))
 
 player_hand_pick = (rps_game[player_selection])
 print(player_hand_pick)
@@ -42,12 +42,12 @@ elif player_selection == 1:
 else:
   print("You selected Scissors")
 
-rps_output = random.randint(0, 2)
+computer_output = random.randint(0, 2)
 
-if rps_output == 0:
+if computer_output == 0:
   print(rock)
   print("Computer Selects Rock")
-elif rps_output == 1:
+elif computer_output == 1:
   print(paper)
   print("Computer selects Paper")
 else:
@@ -55,9 +55,16 @@ else:
   print("Computer Selects Scissors\n")
 
 
-if player_selection == rps_output:
-  print("\nIt is a draw, both you and the computer think the same.")
-elif player_selection < rps_output:
-  print("\nYou beat the computer")
+if player_selection == 0 and computer_output == 2:
+  print("You win!")
+elif computer_output == 0 and player_selection == 2:
+  print("You lose!")
+elif computer_output > player_selection:
+  print("You lose!")
+elif player_selection > computer_output:
+  print("You win!")
+elif computer_output == player_selection:
+  print("It's a draw!")
 else:
-  print("\nComputer beats you")
+  print("You have an invalid number!")
+  
